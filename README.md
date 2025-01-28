@@ -14,5 +14,5 @@ study study :)
 
 
 
-# book repo
+# Book repo
 https://github.com/PacktPublishing/Mastering-Embedded-Linux-Programming-Third-Edition
