@@ -1,0 +1,2 @@
+# embedded-linux
+study study :)
