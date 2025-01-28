@@ -3,7 +3,7 @@ study study :)
 
 # Steps:
 1. Cross compiler tools. Build the compiler tools using crosstool-NG
-2. RomCode in NorFlash (loading SPL)-> SPL (MLO) runs on SRAM (loading u-boot)-> DDRAM-> start u-boot
+2. RomCode in NorFlash (loading SPL)-> MLO (SPL) runs on SRAM (loading u-boot)-> u-boot run on up of DDRAM (TPL)-> u-boot (TPL) loading kernel into DDRAM
 ```
   a. MLO and u-boot.img are in the boot partition in the SD card for the beaglebone sample (similar to raspberry pi i guess)
 ```
