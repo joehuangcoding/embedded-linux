@@ -1,7 +1,7 @@
 # embedded-linux
 study study :)
 
-# 4 Mains Areas
+# 4 Main Areas
 1. Cross compiler tools. Build the compiler tools using crosstool-NG
 2. RomCode in NorFlash (loading SPL)-> MLO (SPL) runs on SRAM (loading u-boot)-> u-boot run on up of DDRAM (TPL)-> u-boot (TPL) loading kernel into DDRAM
 ```
