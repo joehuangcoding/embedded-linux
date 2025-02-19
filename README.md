@@ -10,7 +10,13 @@ study study :)
 3. Config and build kernel
 4. Building a root filesystem 
 
+# Cross Compiler
 
+# Bootloader 
+
+# Kernel 
+
+# Root filesystem 
 
 
 
