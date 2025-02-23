@@ -13,7 +13,7 @@ study study :)
 # Cross Compiler
 
 ```
-//Switch to root user
+//Switch to root user and `su - <username>` switch back
 sudo -i
 // Download CrossTool-NG
 sudo git clone https://github.com/crosstool-ng/crosstool-ng.git
