@@ -71,7 +71,7 @@ bin/ct-ng build
 
 
 ```
-
+The built tool will be under ~/x-tools folder e.g. ~/x-tools/arm-cortex_a8-linux-gnueabihf.
 
 # Bootloader 
 
