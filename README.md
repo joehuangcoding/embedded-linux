@@ -12,6 +12,14 @@ study study :)
 
 # Cross Compiler
 
+```
+//Switch to root user
+sudo -i
+// Download CrossTool-NG
+sudo git clone https://github.com/crosstool-ng/crosstool-ng.git
+
+```
+
 # Bootloader 
 
 # Kernel 
