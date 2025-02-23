@@ -38,6 +38,24 @@ bin/ct-ng list-samples | grep arm
 //armv8-rpi4-linux-gnueabi
 //armv8-rpi4-linux-gnueabihf
 
+bin/ct-ng menuconfig
+
+Target Options:
+Target Architecture → arm
+Target CPU → cortex-a72
+Floating Point → hard
+Endianness → Little endian
+ABI → EABIHF
+
+Toolchain Options:
+Tuple's vendor string → rpi4
+
+Operating System:
+Choose Linux
+Enable Kernel Headers
+
+C Library:
+Choose glibc (or musl if you prefer a smaller toolchain)
 
 ```
 
