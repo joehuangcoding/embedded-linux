@@ -73,6 +73,27 @@ bin/ct-ng build
 ```
 The built tool will be under ~/x-tools folder e.g. ~/x-tools/arm-cortex_a8-linux-gnueabihf.
 
+Testing the cross-compiler
+
+```
+PATH=~/x-tools/arm-rpi4-linux-gnueabi/bin:$PATH
+arm-rpi4-linux-gnueabi-gcc -v
+arm-rpi4-linux-gnueabi-gcc --target-help
+
+nano helloworld.c
+#include <stdio.h>
+#include <stdlib.h>
+int main (int argc, char *argv[])
+{
+   printf ("Hello, world!\n");
+   return 0;
+}
+
+arm-rpi4-linux-gnueabi-gcc helloworld.c -o helloworld
+```
+- Copy helloworld executable to the rasperry pi 4 and run it
+
+
 # Bootloader 
 
 # Kernel 
