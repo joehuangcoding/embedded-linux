@@ -20,7 +20,7 @@ libtool-bin make patch python3-dev rsync texinfo unzip wget xz-utils
 ```
 
 
-## Building Cross Compiler for Rasperrypi 4
+## Building Cross Compiler for raspberrypi 4
 ```
 //Switch to root user and `su - <username>` switch back
 sudo -i
