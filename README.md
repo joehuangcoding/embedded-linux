@@ -12,18 +12,35 @@ study study :)
 
 # Cross Compiler
 
+Dependencies:
+```
+sudo apt-get install autoconf automake bison bzip2 cmake \
+flex g++ gawk gcc gettext git gperf help2man libncurses5-dev libstdc++6 libtool \ 
+libtool-bin make patch python3-dev rsync texinfo unzip wget xz-utils
+```
+
+
+## Building Cross Compiler for Rasperrypi 4
 ```
 //Switch to root user and `su - <username>` switch back
 sudo -i
-// Download CrossTool-NG
 sudo git clone https://github.com/crosstool-ng/crosstool-ng.git
-git checkout crosstool-ng-1.24.0
+cd crosstool-ng
 ./bootstrap
 // The --prefix=${PWD} option means that the program will be installed into the current directory
 ./configure --prefix=${PWD}
-make
-make install
+make && make install
+
+// Check Available ARM Targets
+bin/ct-ng list-samples | grep arm
+// ...
+//arm-unknown-linux-gnueabi
+//armv8-rpi4-linux-gnueabi
+//armv8-rpi4-linux-gnueabihf
+
+
 ```
+
 
 # Bootloader 
 
