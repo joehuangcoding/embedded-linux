@@ -57,7 +57,7 @@ bin/ct-ng menuconfig
 //C Library:
 //Choose glibc (or musl if you prefer a smaller toolchain)
 
-
+bin/ct-ng distclean
 bin/ct-ng --version
 bin/ct-ng build
 
