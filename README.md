@@ -38,6 +38,13 @@ bin/ct-ng list-samples | grep arm
 //armv8-rpi4-linux-gnueabi
 //armv8-rpi4-linux-gnueabihf
 
+//This showing the default config
+bin/ct-ng show-arm-cortex_a8-linux-gnueabi
+
+//Review the configuration
+bin/ct-ng arm-cortex_a8-linux-gnueabi
+
+//Change the config
 bin/ct-ng menuconfig
 
 //Target Options:
