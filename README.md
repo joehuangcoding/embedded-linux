@@ -40,22 +40,28 @@ bin/ct-ng list-samples | grep arm
 
 bin/ct-ng menuconfig
 
-Target Options:
-Target Architecture → arm
-Target CPU → cortex-a72
-Floating Point → hard
-Endianness → Little endian
-ABI → EABIHF
+//Target Options:
+//Target Architecture → arm
+//Target CPU → cortex-a72
+//Floating Point → hard
+//Endianness → Little endian
+//ABI → EABIHF
 
-Toolchain Options:
-Tuple's vendor string → rpi4
+//Toolchain Options:
+//Tuple's vendor string → rpi4
 
-Operating System:
-Choose Linux
-Enable Kernel Headers
+//Operating System:
+//Choose Linux
+//Enable Kernel Headers
 
-C Library:
-Choose glibc (or musl if you prefer a smaller toolchain)
+//C Library:
+//Choose glibc (or musl if you prefer a smaller toolchain)
+
+
+bin/ct-ng --version
+bin/ct-ng build
+
+
 
 ```
 
