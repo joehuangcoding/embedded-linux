@@ -17,7 +17,12 @@ study study :)
 sudo -i
 // Download CrossTool-NG
 sudo git clone https://github.com/crosstool-ng/crosstool-ng.git
-
+git checkout crosstool-ng-1.24.0
+./bootstrap
+// The --prefix=${PWD} option means that the program will be installed into the current directory
+./configure --prefix=${PWD}
+make
+make install
 ```
 
 # Bootloader 
