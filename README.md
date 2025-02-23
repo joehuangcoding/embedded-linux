@@ -66,7 +66,7 @@ bin/ct-ng menuconfig
 
 bin/ct-ng distclean
 bin/ct-ng --version
-bin/ct-ng build
+bin/ct-ng build //Take a half hour to build the cross-compiler
 
 
 
