@@ -115,7 +115,9 @@ https://github.com/PacktPublishing/Mastering-Embedded-Linux-Programming-Third-Ed
 ## Yocto
 The Yocto Project is a more complex beast than Buildroot. Not only can it build toolchains, bootloaders, kernels, and root filesystems as Buildroot can, but it can generate an entire Linux distribution for you with binary packages that can be installed at runtime.
 
-- recipes - python and shell script
-- bitbake - the task scheduler
-
-
+- recipes: python and shell script
+- bitbake: the task scheduler
+- OE-Core: core metadata
+- Poky: This is the reference distribution.
+- Documentation: developer's guides
+- Toaster: a web-based interface to BitBake and its metadata.
