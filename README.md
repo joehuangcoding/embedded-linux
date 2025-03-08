@@ -96,6 +96,21 @@ arm-rpi4-linux-gnueabi-gcc helloworld.c -o helloworld
 
 # Bootloader 
 
+
+
+
+# Build System
+1. Buildroot
+2. Yocto Project
+
+## Yocto
+
+
+
+
+
+
+
 # Kernel 
 
 # Root filesystem 
