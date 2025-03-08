@@ -96,21 +96,6 @@ arm-rpi4-linux-gnueabi-gcc helloworld.c -o helloworld
 
 # Bootloader 
 
-
-
-
-# Build System
-1. Buildroot
-2. Yocto Project
-
-## Yocto
-
-
-
-
-
-
-
 # Kernel 
 
 # Root filesystem 
@@ -120,3 +105,17 @@ arm-rpi4-linux-gnueabi-gcc helloworld.c -o helloworld
 
 # Book repo
 https://github.com/PacktPublishing/Mastering-Embedded-Linux-Programming-Third-Edition
+
+
+
+# Build System
+1. Buildroot
+2. Yocto Project
+
+## Yocto
+The Yocto Project is a more complex beast than Buildroot. Not only can it build toolchains, bootloaders, kernels, and root filesystems as Buildroot can, but it can generate an entire Linux distribution for you with binary packages that can be installed at runtime.
+
+- recipes - python and shell script
+- bitbake - the task scheduler
+
+
