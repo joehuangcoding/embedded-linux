@@ -130,3 +130,6 @@ git clone -b dunfell git://git.yoctoproject.org/poky.git
 
 ### Configuration
 `source poky/oe-init-build-env` creating the `/build` directory
+
+source this script each time you want to work on this project
+
