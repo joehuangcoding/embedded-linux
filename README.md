@@ -121,3 +121,12 @@ The Yocto Project is a more complex beast than Buildroot. Not only can it build 
 - Poky: This is the reference distribution.
 - Documentation: developer's guides
 - Toaster: a web-based interface to BitBake and its metadata.
+
+### Installing Yocto
+```
+git clone -b dunfell git://git.yoctoproject.org/poky.git
+```
+
+
+### Configuration
+`source poky/oe-init-build-env` creating the `/build` directory
