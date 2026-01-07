@@ -192,6 +192,38 @@ chmod +x initramfs/init
 ```
 
 ```
+# Init fixup
+cat > initramfs/init << 'EOF'
+#!/bin/busybox sh
+
+# Force creation of all applets/symlinks early
+/bin/busybox --install -s /bin
+
+# Mount filesystems (now mount, mkdir, etc. exist)
+/bin/busybox mount -t proc     proc     /proc
+/bin/busybox mount -t sysfs    sysfs    /sys
+/bin/busybox mount -t devtmpfs devtmpfs /dev
+/bin/busybox mount -t tmpfs    tmpfs    /tmp
+/bin/busybox mkdir -p /run
+/bin/busybox mount -t tmpfs   tmpfs    /run
+
+# Welcome banner
+/bin/busybox clear 2>/dev/null || true
+/bin/busybox echo
+/bin/busybox echo "========================================"
+/bin/busybox echo "  Minimal Static Initramfs (ARM64)"
+/bin/busybox echo "  BusyBox static shell running!"
+/bin/busybox echo "  Type 'help' for available commands"
+/bin/busybox echo "========================================"
+/bin/busybox echo
+
+# Drop into shell using BusyBox directly (bypasses missing /bin/sh)
+/bin/busybox sh
+EOF
+```
+
+
+```
 cd initramfs
 find . -print0 \
  | cpio --null -ov --format=newc \
