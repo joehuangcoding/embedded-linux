@@ -133,3 +133,16 @@ git clone -b dunfell git://git.yoctoproject.org/poky.git
 
 source this script each time you want to work on this project
 
+
+
+---
+
+# kernal build with initramfs
+https://github.com/ntegan/basic_initramfs
+
+
+
+
+
+
+
