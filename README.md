@@ -142,18 +142,66 @@ source this script each time you want to work on this project
 - https://docs.kernel.org/filesystems/ramfs-rootfs-initramfs.html
 
 # Experiment, busybox, initramfs, linux build, qemu and raspi4
+## Linux build
 ```
 wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.16.tar.xz
 tar -xvf linux-6.6.16.tar.xz
 cd linux-6.6.16
 
-# Config
+# Config in macOS running ubuntu using UTM
 
-make defconfig
-make menuconfig  # Optional: Enable 64-bit, devtmpfs, etc.
+make ARCH=arm64 defconfig
+make ARCH=arm64 menuconfig  # Optional: Enable more features if needed
+make ARCH=arm64 -j$(nproc) Image
+```
+
+## Root file system 
+```
+# Install busybox-static if not already done
+sudo apt update
+sudo apt install busybox-static
+mkdir -p initramfs/{bin,sbin,dev,proc,sys,tmp,etc,usr/{bin,sbin}}
+# Copy the static busybox and install symlinks correctly
+cp /bin/busybox initramfs/bin/busybox
+# This is the key line — installs symlinks cleanly into bin/ and sbin/
+initramfs/bin/busybox --install -s initramfs/bin
+# Create the init script
+cat > initramfs/init << 'EOF'
+#!/bin/busybox sh
+
+# Mount essential filesystems
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev
+mount -t tmpfs none /tmp
+
+echo
+echo "=================================="
+echo "  Minimal Static Initramfs Ready! "
+echo "  Running on ARM64 (aarch64)     "
+echo "=================================="
+echo
+
+# Start an interactive shell
+exec /bin/sh
+EOF
+
+# Make the init script executable
+chmod +x initramfs/init
 
 ```
 
+## Running qemu
+```
+qemu-system-aarch64 \
+  -machine virt \
+  -cpu cortex-a57 \
+  -m 512 \
+  -kernel /boot/vmlinuz-$(uname -r) \
+  -initrd my_initramfs.cpio.gz \
+  -nographic \
+  -append "console=ttyAMA0 rdinit=/init"
+```
 
 
 
