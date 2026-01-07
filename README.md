@@ -138,7 +138,26 @@ source this script each time you want to work on this project
 ---
 
 # kernal build with initramfs
-https://github.com/ntegan/basic_initramfs
+- https://github.com/ntegan/basic_initramfs
+- https://docs.kernel.org/filesystems/ramfs-rootfs-initramfs.html
+
+# Experiment, busybox, initramfs, linux build, qemu and raspi4
+```
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.16.tar.xz
+tar -xvf linux-6.6.16.tar.xz
+cd linux-6.6.16
+
+# Config
+
+make defconfig
+make menuconfig  # Optional: Enable 64-bit, devtmpfs, etc.
+
+```
+
+
+
+
+
 
 
 
