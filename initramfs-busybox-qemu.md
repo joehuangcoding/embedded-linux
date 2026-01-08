@@ -64,3 +64,26 @@ cat > initramfs/init << 'EOF'
 EOF
 
 ```
+
+# Output cpio.gz
+```
+cd initramfs
+find . -print0 \
+ | cpio --null -ov --format=newc \
+ | gzip -9 > ../my_initramfs.cpio.gz
+cd -
+
+```
+
+# Running qemu
+```
+qemu-system-aarch64 \
+  -machine virt \
+  -cpu cortex-a57 \
+  -m 512 \
+  -kernel /boot/vmlinuz-$(uname -r) \
+  -initrd my_initramfs.cpio.gz \
+  -nographic \
+  -append "console=ttyAMA0 rdinit=/init"
+```
+
