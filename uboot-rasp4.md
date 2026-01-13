@@ -32,6 +32,18 @@ git clone --depth=1 --branch=1.20250915 https://github.com/raspberrypi/firmware.
 cp firmware/boot/{bcm2711-rpi-4-b.dtb,fixup4.dat,start4.elf} boot/
 
 ```
+# Create raspi4 boot config file
+```
+cat << EOF > boot/config.txt
+# Enable mini UART
+enable_uart=1
+# Run in 64-bit mode
+arm_64bit=1
+# Use Das U-Boot
+kernel=u-boot.bin
+EOF
+```
+
 
 
 
