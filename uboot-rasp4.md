@@ -10,8 +10,48 @@ https://docs.u-boot.org/en/stable/build/gcc.html
 ```
 
 # Build
+```
 git clone --depth=1 --branch=v2026.01 https://source.denx.de/u-boot/u-boot.git
-## cross compile for 64 bit arm architecture RPi4
+```
+
+## Cross compile for 64 bit arm architecture RPi4
+```
 cd u-boot/
 CROSS_COMPILE=aarch64-linux-gnu- make rpi_4_defconfig
 CROSS_COMPILE=aarch64-linux-gnu- make -j6
+
+# Copy the output 
+cd ..
+mkdir boot
+cp u-boot/u-boot.bin boot/
+```
+
+# Copy raspberry 4 boot files
+```
+git clone --depth=1 --branch=1.20250915 https://github.com/raspberrypi/firmware.git
+cp firmware/boot/{bcm2711-rpi-4-b.dtb,fixup4.dat,start4.elf} boot/
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
