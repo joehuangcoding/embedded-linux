@@ -27,5 +27,14 @@ git clone --depth=1 --branch=1.20230106 https://github.com/raspberrypi/firmware.
 mkdir -p boot/overlays
 cp firmware/boot/{bcm2711-rpi-4-b.dtb,fixup4.dat,start4.elf} boot/
 cp firmware/boot/overlays/disable-bt.dtbo boot/overlays/
+zcat -S .img firmware/boot/kernel8.img > boot/Image
+```
 
+# Root File System
+```
+wget https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/aarch64/alpine-minirootfs-3.17.1-aarch64.tar.gz
+mkdir rootfs
+tar xf alpine-minirootfs-*-aarch64.tar.gz -C rootfs
+# create initramfs
+cd rootfs && find . | fakeroot  cpio -ov -H newc | gzip > ../initramfs.igz && cd ..
 ```
