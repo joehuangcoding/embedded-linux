@@ -1,3 +1,6 @@
+# Useful resources 
+https://stackoverflow.com/questions/64014958/cant-get-u-boot-running-on-raspberry-pi-4b-what-are-the-absolute-necessities
+
 # Serial output 
 - Get a raspberry debug probe or 3.3v usb uart
 - Install https://teratermproject.github.io/index-en.html
