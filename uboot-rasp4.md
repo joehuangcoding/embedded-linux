@@ -53,13 +53,14 @@ EOF
 ```
 U-Boot> setenv bootargs coherent_pool=1M 8250.nr_uarts=1 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_headphones=1 smsc95xx.macaddr=DC:A6:32:05:53:B6 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000 console=ttyS0,115200 console=tty1 root=PARTUUID=7f586f18-02 rootfstype=ext4 elevator=deadline rootwait
 
-U-Boot> load mmc 0:1 $fdt_addr_r bcm2711-rpi-4-b.dtb                 
-47471 bytes read in 26 ms (1.7 MiB/s)
 
-U-Boot> load mmc 0:1 $kernel_addr_r kernel8.img
-15483392 bytes read in 823 ms (17.9 MiB/s)
+setenv fdt_addr 0x4000000
+load mmc 0:1 $fdt_addr_r bcm2711-rpi-4-b.dtb                 
 
-load mmc 0:1 $ramdisk_addr_r uRamdisk
+load mmc 0:1 $kernel_addr_r kernel8.img
+
+load mmc 0:1 $ramdisk_addr_r uRamdisk ??
+#load mmc 0:1 $ramdisk_addr_r initramfs.cpio.gz
 
 booti $kernel_addr_r - $ramdisk_addr_r - $fdt_addr_r
 ```
