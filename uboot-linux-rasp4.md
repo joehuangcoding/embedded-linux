@@ -38,13 +38,14 @@ tar xf alpine-minirootfs-*-aarch64.tar.gz -C rootfs
 # create initramfs
 cd rootfs && find . | fakeroot  cpio -ov -H newc | gzip > ../initramfs.igz && cd ..
 ```
-# /sys/kernel/debug/gpio lives on debugfs, which is not mounted by default, especially in an initramfs.
-```
-mount -t debugfs debugfs /sys/kernel/debug
-cat /sys/kernel/debug/gpio | grep gpio-17
-```
+
 
 ```
+cat << "EOF" > boot.txt
+fatload mmc 0:1 ${kernel_addr_r} Image
+fatload mmc 0:1 ${ramdisk_addr_r} uRamdisk
+booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr}
+EOF
 rm -rf boot
 mkdir -p boot/overlays
 cp u-boot/u-boot.bin boot/
@@ -68,6 +69,15 @@ arm_64bit=1
 kernel=u-boot.bin
 EOF
 ```
+
+
+
+# /sys/kernel/debug/gpio lives on debugfs, which is not mounted by default, especially in an initramfs.
+```
+mount -t debugfs debugfs /sys/kernel/debug
+cat /sys/kernel/debug/gpio | grep gpio-17
+```
+
 
 
 # Set low
