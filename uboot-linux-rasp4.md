@@ -68,6 +68,10 @@ arm_64bit=1
 # Use Das U-Boot
 kernel=u-boot.bin
 EOF
+
+
+echo "console=tty1 console=serial0,115200 rdinit=/bin/sh" > boot/cmdline.txt
+
 ```
 
 
