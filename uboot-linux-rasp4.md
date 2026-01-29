@@ -44,6 +44,32 @@ mount -t debugfs debugfs /sys/kernel/debug
 cat /sys/kernel/debug/gpio | grep gpio-17
 ```
 
+```
+rm -rf boot
+mkdir -p boot/overlays
+cp u-boot/u-boot.bin boot/
+cp firmware/boot/{bcm2711-rpi-4-b.dtb,fixup4.dat,start4.elf} boot/
+cp firmware/boot/overlays/disable-bt.dtbo boot/overlays/
+
+# uncompress kernel (U-Boot can boot compressed but takes special handling)
+zcat -S .img firmware/boot/kernel8.img > boot/Image
+
+# use the mkimage tool to prepare the initramfs and boot script for u-boot
+./u-boot/tools/mkimage -A arm64 -O linux -T script -C none -d boot.txt boot/boot.scr
+./u-boot/tools/mkimage -A arm64 -O linux -T ramdisk -d initramfs.igz boot/uRamdisk
+
+# create a simple config.txt file
+cat << EOF > boot/config.txt
+# Disable bluetooth so we can user serial console
+dtoverlay=disable-bt
+# Run in 64-bit mode
+arm_64bit=1
+# Use Das U-Boot
+kernel=u-boot.bin
+EOF
+```
+
+
 # Set low
 ```
 echo 0 > /sys/class/gpio/gpio17/value
