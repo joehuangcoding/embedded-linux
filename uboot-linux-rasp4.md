@@ -38,3 +38,22 @@ tar xf alpine-minirootfs-*-aarch64.tar.gz -C rootfs
 # create initramfs
 cd rootfs && find . | fakeroot  cpio -ov -H newc | gzip > ../initramfs.igz && cd ..
 ```
+# /sys/kernel/debug/gpio lives on debugfs, which is not mounted by default, especially in an initramfs.
+```
+mount -t debugfs debugfs /sys/kernel/debug
+cat /sys/kernel/debug/gpio | grep gpio-17
+```
+
+# Set low
+```
+echo 0 > /sys/class/gpio/gpio17/value
+cat /sys/kernel/debug/gpio | grep gpio-17
+ gpio-17  (GPIO17              |sysfs               ) out lo
+```
+
+# Set high
+```
+echo 1 > /sys/class/gpio/gpio17/value
+cat /sys/kernel/debug/gpio | grep gpio-17
+ gpio-17  (GPIO17              |sysfs               ) out hi
+```
