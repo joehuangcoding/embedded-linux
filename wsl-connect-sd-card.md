@@ -12,3 +12,7 @@ Do the same for any other mounted partitions (F:, etc.).
 This does not delete partitions. It just makes them invisible to Windows, freeing the disk for WSL mounting.
 
 Get-Partition -DiskNumber 2 | Remove-PartitionAccessPath -AccessPath "E:"
+
+
+# usbip-wins
+https://github.com/rpasek/usbip-wsl2-instructions
