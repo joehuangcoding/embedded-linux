@@ -16,3 +16,15 @@ Get-Partition -DiskNumber 2 | Remove-PartitionAccessPath -AccessPath "E:"
 
 # usbip-wins
 https://github.com/rpasek/usbip-wsl2-instructions
+
+
+
+# Mounting fs to folder
+```
+sudo mount /dev/sdc2 ./rpi-root/
+sudo cp -a ./rootfs/. ./rpi-root/
+```
+# Link init
+```
+sudo ln -sf /bin/busybox /sbin/init
+```
