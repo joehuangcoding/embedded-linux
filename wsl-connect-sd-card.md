@@ -1,4 +1,25 @@
+# Oracle VM VirtualBox
+- VirtualBox version 7.0
+- Download ubuntu iso
+- Add and run the ubuntu system
+- Read the SD card. You will need a SD Card Reader. VirtualBox doesn't seem to read from SD card directly
+- Enable copy and paste
+```
+1. Install Virtual Box extension pack in host
+https://download.virtualbox.org/virtualbox/7.0.20/Oracle_VM_VirtualBox_Extension_Pack-7.0.20.vbox-extpack
+2. Activate shared clipboard in menu
+https://askubuntu.com/a/438204/245048
+3. Install Virtual Box guest extensions in ubuntu guest
+sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
+or
+
+sudo apt-get install virtualbox-guest-additions-iso
+
+4. Reboot virtual machine
+```
+
+# Windows check the partitions
 1. Get the DriveLetter
 
 Get-Partition -DiskNumber 2 | Select-Object PartitionNumber, DriveLetter
