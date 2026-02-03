@@ -31,7 +31,9 @@ mkdir -p ~/rpi4/boot
 # rootfs ext4
 mkdir -p ~/rpi4/rootfs 
 
-
+tar -czf archive.tar.gz folder/
+tar -xzf archive.tar.gz -C /path/to/destination
 make modules_install INSTALL_MOD_PATH=~/rpi4/rootfs
+
 
 ```
