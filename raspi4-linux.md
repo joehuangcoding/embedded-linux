@@ -12,6 +12,12 @@ make bcm2711_defconfig
 
 make -j$(nproc)
 
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j$(nproc)
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- dtbs
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- modules -j$(nproc)
+// Install modules to rootfs
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=/mnt/rootfs modules_install
+
 // Created
 arch/arm64/boot/Image
 arch/arm64/boot/dts/broadcom/*.dtb
