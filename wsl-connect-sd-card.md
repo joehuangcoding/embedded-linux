@@ -44,6 +44,14 @@ https://github.com/rpasek/usbip-wsl2-instructions
 ```
 sudo mount /dev/sdc2 ./rpi-root/
 sudo cp -a ./rootfs/. ./rpi-root/
+
+
+sudo rm -rf ./rpi-root/*
+
+tar -czf archive.tar.gz folder/
+
+tar -xzf archive.tar.gz -C /path/to/destination
+
 ```
 # Link init
 ```
